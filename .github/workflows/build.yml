@@ -1,0 +1,27 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main  # Replace with your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Replace with your Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build TypeScript
+      run: npm run build
+
+    - name: Test TypeScript
+      run: npm test  # Replace with your test command if applicable
